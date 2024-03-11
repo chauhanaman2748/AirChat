@@ -3,9 +3,9 @@ import {SignUpUser, LogInUser, LogOutUser} from "../controllers";
 
 const router = express.Router();
 
-router.get("/signup", SignUpUser);
+router.post("/signup", SignUpUser);
 
-router.get("/login", LogInUser);
+router.post("/login", LogInUser);
 
 router.get("/logout", LogOutUser);
 

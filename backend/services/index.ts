@@ -1,0 +1,1 @@
+export {default as generateTokenAndSetCookie} from "./generateToken";
