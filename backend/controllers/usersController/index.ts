@@ -1,0 +1,1 @@
+export {getUsersForSidebar} from "./userController";
