@@ -4,7 +4,7 @@ import { Response } from 'express';
 
 const generateTokenAndSetCookie = (userId: mongoose.Types.ObjectId, res: Response) => {
     if (!process.env.JWT_SECRET) {
-        throw new Error("MONGO_DB_URI is not defined in environment variables");
+        throw new Error("JWT SECRET is not defined in environment variables");
     }
     const token = jwt.sign({userId}, process.env.JWT_SECRET, {
         expiresIn: '15d'
