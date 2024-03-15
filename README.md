@@ -40,3 +40,32 @@ npm create vite@latest .
 ```bash
 npm i
 ```
+
+<h5><i>Command for adding Tailwind:</i></h5>
+
+```bash
+npm install -D tailwindcss  
+```
+```bash
+npx tailwindcss init
+```
+
+<h5><i>Command for adding DaisyUI:</i></h5>
+
+```bash
+npm install daisyui   
+```
+
+<h5><i>Command for adding postcss:</i></h5>
+
+```bash
+npm i -D postcss    
+```
+
+<h5><i>Command for adding postcss:</i></h5>
+
+```bash
+npm i -D autoprefixer     
+```
+
+###### ** Visit Tailwind Glassmorphism Generator for glass effect **
