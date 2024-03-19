@@ -11,11 +11,11 @@ interface Conversation {
 
 interface Messages { 
     _id: ObjectId,
-    senderId: string,
-    receiverId: string,
+    senderId: ObjectId,
+    receiverId: ObjectId,
     message: string,
-    createdAt: Date,
-    updatedAt: Date
+    createdAt: string,
+    updatedAt: string
 }
 
 interface ConversationState {
