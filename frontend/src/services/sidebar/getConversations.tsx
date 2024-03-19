@@ -1,6 +1,9 @@
+import { useEffect } from "react";
 import { useConversation } from "../../hooks";
+import { ObjectId } from 'bson';
 
 interface Conversation {
+	_id: ObjectId,
 	fullName: string,
     userName: string, 
     gender: string,
@@ -17,6 +20,10 @@ const GetConversations = ({conversation, emoji, lastIdx}: GetConversationsTypes)
 
 	const {selectedConversation, setSelectedConversation} = useConversation();
 	const isSelected = selectedConversation?._id === conversation._id;
+
+	useEffect(() => {
+        return () => setSelectedConversation(null); 
+    }, [setSelectedConversation]);
 
 	const handleClick = () => {
         setSelectedConversation(conversation);

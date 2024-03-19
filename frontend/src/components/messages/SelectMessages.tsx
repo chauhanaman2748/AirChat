@@ -1,12 +1,13 @@
+import { useConversation } from '../../hooks';
 import MessageContainer from './MessageContainer';
 import NoChatSelected from './NoChatSelected';
 
 const SelectMessages = () => {
-  const showMessages = true; 
+  const {selectedConversation} = useConversation();
 
   return (
     <>
-      {showMessages ? <MessageContainer /> : <NoChatSelected />}
+      {selectedConversation ? <MessageContainer /> : <NoChatSelected />}
     </>
   );
 };
