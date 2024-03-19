@@ -20,8 +20,12 @@ const useLogout = () => {
 
 			localStorage.removeItem("chat-user");
 			setAuthUser(null);
-		} catch (error: any) {
-			toast.error(error.message);
+		} catch (error: unknown) {
+			if (error instanceof Error) {
+				toast.error(error.message);
+			} else {
+				toast.error("An unknown error occurred.");
+			}
 		} finally {
 			setLoading(false);
 		}
