@@ -7,3 +7,4 @@ export { useConversation } from './conversation/useConversation';
 export { default as useSendMessage } from './messages/useSendMessage';
 export { default as useGetMessages } from './messages/useGetMessages';
 export { default as useListenMessages } from './messages/useListenMessages';
+export { useSocketContext } from './socket/useSocketContext';

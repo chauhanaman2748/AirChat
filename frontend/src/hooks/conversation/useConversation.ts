@@ -15,13 +15,14 @@ interface Messages {
     receiverId: ObjectId,
     message: string,
     createdAt: string,
-    updatedAt: string
+    updatedAt: string,
+    shouldShake: boolean
 }
 
 interface ConversationState {
     selectedConversation: Conversation | null;
     setSelectedConversation: (selectedConversation: Conversation | null) => void;
-    messages: Messages[] | null;
+    messages: Messages[];
     setMessages: (messages: Messages[]) => void;
 }
 
