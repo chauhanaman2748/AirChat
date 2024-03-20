@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { Conversation, Message } from '../../models';
+import { getReceiverSocketId, io } from '../../services';
 
 declare global {
     namespace Express {
@@ -36,6 +37,11 @@ const sendMessage = async (req: Request, res: Response) => {
         }
 
         await Promise.all([conversation.save(), newMessage.save()]);
+
+        const receiverSocketId = getReceiverSocketId(receiverId);
+        if(receiverSocketId) {
+            io.to(receiverSocketId).emit("newMessage", newMessage);
+        }
 
         res.status(200).json(newMessage);
 

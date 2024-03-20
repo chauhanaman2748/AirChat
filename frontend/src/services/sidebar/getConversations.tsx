@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useConversation } from "../../hooks";
 import { ObjectId } from 'bson';
+import { useSocketContext } from "../../hooks";
 
 interface Conversation {
 	_id: ObjectId,
@@ -20,6 +21,9 @@ const GetConversations = ({conversation, emoji, lastIdx}: GetConversationsTypes)
 
 	const {selectedConversation, setSelectedConversation} = useConversation();
 	const isSelected = selectedConversation?._id === conversation._id;
+	const {onlineUsers} = useSocketContext();
+	const isOnline = onlineUsers.includes(conversation._id)
+
 
 	useEffect(() => {
         return () => setSelectedConversation(null); 
@@ -36,7 +40,7 @@ const GetConversations = ({conversation, emoji, lastIdx}: GetConversationsTypes)
 			`}
 				onClick={handleClick}
 			>
-				<div className='avatar online'>
+				<div className={`avatar ${isOnline ? "online" : ""}`}>
 					<div className='w-12 rounded-full'>
 						<img
 							src={conversation.profilePic}

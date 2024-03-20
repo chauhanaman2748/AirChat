@@ -1,12 +1,12 @@
 import { GetMessages } from "../../services";
 import MessageSkeleton from "../skeleton/MessageSkeleton";
-import { useGetMessages } from "../../hooks";
+import { useGetMessages, useListenMessages } from "../../hooks";
 import { useEffect, useRef } from "react";
 
 const Messages = () => {
 	const { messages, loading } = useGetMessages();
     const lastMessageRef = useRef<HTMLDivElement | null>(null);
-
+    useListenMessages();
 
     useEffect(() => {
 		setTimeout(() => {
