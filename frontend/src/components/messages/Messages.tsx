@@ -20,7 +20,7 @@ const Messages = () => {
                 [...Array(8)].map((_, idx) => <MessageSkeleton key={idx} />)
             ) : messages && messages.length > 0 ? (
                 messages.map((message) => (
-                    <div key={message._id} ref={lastMessageRef}>
+                    <div key={message._id.toString()} ref={lastMessageRef}>
                         <GetMessages message={message} />
                     </div>
                 ))

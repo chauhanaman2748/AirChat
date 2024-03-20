@@ -17,7 +17,7 @@ const Conversation = () => {
 		<div className='py-2 flex flex-col overflow-auto'>
 			{conversations.map((conversation: Conversation, idx) => (
 				<GetConversations
-					key={conversation._id}
+					key={conversation._id.toString()}
 					conversation={conversation}
 					emoji={getRandomEmoji()}
 					lastIdx={idx === conversations.length - 1}
