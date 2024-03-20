@@ -20,7 +20,7 @@ export const SocketContextProvider = ({ children }: { children: ReactNode }) => 
         let socketInstance: Socket | undefined;
 
         if (authUser) {
-            socketInstance = io("http://localhost:5000", {
+            socketInstance = io("https://airchat.onrender.com", {
                 query: {
                     userId: authUser._id,
                 },
